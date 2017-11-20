@@ -32,7 +32,7 @@ echo "Found version $VERSION"
 if [[ $VERSION == *-SNAPSHOT ]];
 then
 	echo "Deploying to OSSRH Snapshots..."
-  	mvn clean deploy $MVN_EXTRA_ARG -DaltDeploymentRepository=ossrh::default::https://oss.sonatype.org/content/repositories/snapshots -B --settings ${DIR}/deploy-settings.xml
+  	mvn clean deploy -Ddeploy $MVN_EXTRA_ARG -DaltDeploymentRepository=ossrh::default::https://oss.sonatype.org/content/repositories/snapshots -B --settings ${DIR}/deploy-settings.xml
 else
 	echo "Release version, deploy is manual."
 fi
